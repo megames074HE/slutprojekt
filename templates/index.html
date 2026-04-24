@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LIST TEST!!!!!!!!</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="flex-test">
+    {%for i in range(0, len)%}
+        <div class="column">
+            <img src="{{npo_data['items']['image_url'][i]}}" alt="">
+            <a href="/{{npo_data['items']['series_slug'][i]}}" class="button">{{npo_data['items']['title'][i]}}</a>
+        </div>
+    {%endfor%}
+    </div>
+</body>
+</html>
