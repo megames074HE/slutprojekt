@@ -55,7 +55,7 @@ def npo_widevine(slug, cookie):
         #print(f"S{stream_season_number}E{stream_episode_number}, N:{stream_title} NT:{stream_episode_title}")
 
         ## Final name that the downloaded file will get. Format: "SHOW_NAME-S00E00-EPISODE_NAME"
-        media_name = f"{stream_title.replace(" ","_")}-S{stream_season_number}E{stream_episode_number}-{stream_episode_title.replace(" ", "_")}"
+        media_name = f"{stream_title.replace(' ','_')}-S{stream_season_number}E{stream_episode_number}-{stream_episode_title.replace(' ', '_')}"
     else:
         media_name = stream_episode_title.replace(" ", "_")
 

@@ -81,11 +81,11 @@ for i in range(len(all_season_episodes)):
     print(media_name)
     ## Makes a folder for the downloaded show. Format: "*\\series\\SHOW_NAME\\SEASON_X"
     try:
-        os.makedirs(f"{download_path}series\\{stream_title.replace(" ", "_")}\\Season_{stream_season_number}")
+        os.makedirs(f'{download_path}series\\{stream_title.replace(" ", "_")}\\Season_{stream_season_number}')
     except FileExistsError:
         pass
 
-    download_location = f"{download_path}series\\{stream_title.replace(" ", "_")}\\Season_{stream_season_number}"
+    download_location = f'{download_path}series\\{stream_title.replace(" ", "_")}\\Season_{stream_season_number}'
 
     ## Downloads at highest quality and decrypts automatically
     #subprocess.run(

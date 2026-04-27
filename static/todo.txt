@@ -1,0 +1,52 @@
+INDEX.HTML:
+
+TO KNOW:
+
+    trending cover image needs to be 375x375, and cover text needs to be 256x256. but image doesnt matter changed to highest
+    new programs title image needs to be 128x128 and chose 900x900 for new programs images
+
+
+- change header color if i not like it anymore
+
+- change npo logo because copyright
+
+- make login functional
+
+- add actual links to header links
+
+- change the images to be rendered by python and add links to trending images
+
+- add correct flask url to form action
+
+- fix wave errors if those are there.
+
+- add video if available on trending tabs
+
+- make random trending on reload
+
+-fix favicon
+
+- fix form color so mouse doesnt disappear.
+
+- add hover effects to all buttons
+
+- take extra look add margins and responsive
+
+- add functionality that adds plus icon to plus media so user know if he needs to login.
+
+- add favicon
+
+-add function so that there are no duplicates in the trending and new_programs
+
+
+
+SEARCH-RESULTS.html
+
+- favicon
+
+- go back button
+
+- alt for every image needs to be the slug of the displayed program
+
+- add functionality that if there are no results shows a error text instead
+

@@ -6,20 +6,26 @@ payload = {"searchQuery": "de mol",
             "subscriptionType": "anonymous",
             "includePremiumContent": "true"}
 
-search_results_api = requests.get("https://npo.nl/start/api/domain/search-collection-items", params=payload).json()['items'][:10]
+search_results_api = requests.get("https://npo.nl/start/api/domain/search-collection-items", params=payload).json()['items'][:16]
 
 
 post_data = {"items": {"image_url": [],
-                       "title": []},
-                       "series_slug": []}
+                       "title_image": [],
+                       "series_slug": []}}
 
 
 
 for i in range(len(search_results_api)):
     image_url = None
 
-    post_data['items']['title'].append(search_results_api[i]['title'])
-    post_data['items']['title'].append(search_results_api[i]['slug'])
+
+    post_data['items']['series_slug'].append(search_results_api[i]['slug'])
+
+
+    for image in search_results_api[i]['images']:
+        if image['role'] == "title":
+            image_url = image['url']
+            post_data['items']['title_image'].append(image_url)
 
     for image in search_results_api[i]['images']:
         if image['role'] == "collection_item":
