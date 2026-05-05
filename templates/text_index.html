@@ -1,0 +1,20 @@
+
+<script>
+    
+    var data = {
+    {% for i in range(0, 10) %}    
+        {{i}}: "Large Amount of text{{i}}",
+    {% endfor %}
+    };
+
+    function changeText(id) {
+        document.getElementById("content").innerHTML = data[id];        
+    }
+</script>
+
+<select id="whatever" onchange="changeText(this.value);">
+    <option value="0">Select</option>
+    <option value="1">One</option>
+    <option value="3">Two</option>
+</select>
+<div id="content"></div>

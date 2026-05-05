@@ -50,9 +50,9 @@ def index():
 
     return render_template("index.html", post_data=post_data)
 
-
 @app.route('/search_results', methods=['POST'])
 def search_results():
+
     if request.method == 'POST':
 
         search_term = request.form['search-term']
@@ -102,6 +102,57 @@ def search_results():
 
         print(post_data)
         return render_template("search_results.html", post_data=post_data, len=len_list)
+
+@app.route('/programs')
+def programs():
+    program_slug = request.args.get('slug')
+
+    payload = {
+        'seriesSlug': program_slug,
+        'tab': 'afleveringen'
+    }
+
+    program_data = requests.get(f"https://npo.nl/start/_next/data/x86HHiBzF_QycknSQpn-M/serie/{program_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries'][0]['state']['data']
+
+    post_data = {"items": {"image_url": "",
+                        "title_image": "",
+                        "program_title": "",
+                        "program_summary": "",
+                        "program_genre": ""}}
+
+    program_title = program_data['title']
+    post_data['items']['program_title'] = program_title
+
+    program_summary = program_data['synopsis']
+    post_data['items']['program_summary'] = program_summary
+
+    program_genre = program_data['genres'][0]['name']
+    post_data['items']['program_genre'] = program_genre
+
+    for image_text in program_data['images']:
+        if image_text['role'] == "title":
+            image_text_url = image_text['url']
+            post_data['items']['title_image'] = image_text_url
+
+    for image in program_data['images']:
+        if image['role'] == "collection_item":
+            image_url = image['url']
+            post_data['items']['image_url'] = image_url
+            
+    if not image_url:
+        for image in program_data['images']:
+            if image['role'] == "default":
+                image_url = image['url']
+                post_data['items']['image_url'] = image_url
+    
+    return render_template('program_info.html', post_data=post_data)
+
+@app.route("/test")
+def test():
+    post_data = {'items': ['test1', 'test2', 'test3', 'test4']}
+
+
+    return render_template('text_index.html', post_data=post_data)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

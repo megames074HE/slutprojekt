@@ -374,11 +374,27 @@ body {
 .program-info-right-side-bottom
 
 .genre-and-broadcaster {
+    margin: 1rem;
     display: flex;
-
+    flex-direction: column;
 }
 
-.genre-and-broadcaster h2 {
+.genre-and-broadcaster svg {
+    width: 48px;
+}
+
+.genre-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.program-info-genre{
     font-family: "Open Sans", sans-serif;
     color: white;
+}
+
+.program-info-genre-type{
+    font-family: "Open Sans", sans-serif;
+    color: #e7e7e7bd;
 }
