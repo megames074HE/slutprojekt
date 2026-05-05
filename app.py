@@ -63,7 +63,7 @@ def search_results():
                    "includePremiumContent": "true"}
 
         search_results_api = requests.get("https://npo.nl/start/api/domain/search-collection-items", params=payload).json()[
-            'items'][:16]
+            'items'][:24]
 
         post_data = {"items": {"image_url": [],
                                "title_image": [],

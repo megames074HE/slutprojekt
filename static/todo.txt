@@ -50,3 +50,6 @@ SEARCH-RESULTS.html
 
 - add functionality that if there are no results shows a error text instead
 
+PROGRAM_INFO.html
+
+- change title to episode name

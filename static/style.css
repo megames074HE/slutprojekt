@@ -1,3 +1,7 @@
+
+
+/* css for all the html pages */
+
 body {
     background: #0C203C;
     margin: 0;
@@ -57,6 +61,8 @@ body {
     text-decoration: none;
     gap: 0.2rem;
 }
+
+/* index.html */
 
 .index-main {
     display: flex;
@@ -227,6 +233,7 @@ body {
 }
 
 
+/* search_results.html */
 
 .search-results-main {
     display: flex;
@@ -287,4 +294,91 @@ body {
     justify-content: center;
     flex-shrink: 1;
     gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+
+/* program_info.html */
+
+.program-info-main {
+    display: flex;
+}
+
+
+.program-info-left-side {
+    display: flex;
+    margin: 2.5rem;
+}
+
+.program-info-image-container {
+    position: relative;
+    width: 380px;
+    height: 570px;
+    border-radius: 20px;
+    overflow: hidden;
+
+}
+
+.program-info-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.program-info-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 30%, rgba(10, 30, 80, 0.85) 80% );
+
+
+}
+
+.program-info-image-text {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+}
+
+
+.program-info-right-side {
+    display: flex;
+    flex-direction: column;
+    margin: 2.5rem;
+    background-color: rgba(12, 32, 50, 0.5);
+    border-radius: 30px;
+}
+
+.program-info-program-summary {
+    margin: 1rem;
+
+}
+
+.program-info-program-summary h1 {
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-size: 3rem;
+}
+
+.program-info-program-summary p {
+   
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+
+}
+
+.program-info-right-side-bottom
+
+.genre-and-broadcaster {
+    display: flex;
+
+}
+
+.genre-and-broadcaster h2 {
+    font-family: "Open Sans", sans-serif;
+    color: white;
 }
