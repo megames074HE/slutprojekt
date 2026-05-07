@@ -18,5 +18,3 @@ for program_seasons in program_data:
     program_season_guid = program_seasons['guid']
     print(program_season_guid)
 
-    season_episodes = requests.get(f"https://npo.nl/start/api/domain/programs-by-season?ageRestriction=undefined&guid={program_season_guid}&type=timebound_series&includePremiumContent=true").json()
-    print(len(season_episodes))

@@ -1,9 +1,12 @@
 from flask import Flask, render_template, request
+from flask_cors import CORS
 import requests
 import random
 
 
 app = Flask(__name__)
+CORS(app)
+
 
 ## URLS can basically be changed to everything you want. Did these one because my layout has trending and new programs. But you can have programs from an category displayed as well.
 trending_programs_url = "https://npo.nl/start/api/domain/recommendation-collection?collectionId=trending-anonymous-v0&collectionIndex=1&collectionType=SERIES&includePremiumContent=true&layoutType=RECOMMENDATION&partyId=1%3Amjue2oeb%3A16f959774071426fb880d64700be8000"
@@ -107,6 +110,8 @@ def search_results():
 def programs():
     program_slug = request.args.get('slug')
 
+    image_url = None
+
     payload = {
         'seriesSlug': program_slug,
         'tab': 'afleveringen'
@@ -149,10 +154,42 @@ def programs():
 
 @app.route("/test")
 def test():
-    post_data = {'items': ['test1', 'test2', 'test3', 'test4']}
+    search_slug = "wie-is-de-mol"
+
+    payload = {
+        'seriesSlug': search_slug,
+        'tab': 'afleveringen'
+    }
 
 
-    return render_template('text_index.html', post_data=post_data)
+    program_data = requests.get(f"https://npo.nl/start/_next/data/x86HHiBzF_QycknSQpn-M/serie/{search_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries'][3]['state']['data']
+
+    post_data = {'items': {'season_title': [],
+                           'season_guid': []}}
+
+    for program_seasons in program_data:
+
+        program_season_label = program_seasons['label']
+        print(program_season_label)
+        post_data['items']['season_title'].append(program_season_label)
+
+        program_season_guid = program_seasons['guid']
+        print(program_season_guid)
+        post_data['items']['season_guid'].append(program_season_guid)
+
+
+
+
+    return render_template('text_index.html', post_data=post_data, len=len(post_data['items']['season_title']))
+
+@app.route("/season-data-api")
+def season_data_api():
+    
+    season_guid = request.args.get('season-slug')
+    print('slug '+season_guid)
+    cors_data = requests.get(f'https://npo.nl/start/api/domain/programs-by-season?ageRestriction=undefined&guid={season_guid}&type=timebound_series&includePremiumContent=true').json()
+
+    return cors_data
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

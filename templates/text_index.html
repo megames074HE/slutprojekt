@@ -2,19 +2,32 @@
 <script>
     
     var data = {
-    {% for i in range(0, 10) %}    
-        {{i}}: "Large Amount of text{{i}}",
+    {% for i in range(0, len) %}    
+        {{i}}: '{{ post_data['items']['season_guid'][i] }}',
     {% endfor %}
     };
 
     function changeText(id) {
-        document.getElementById("content").innerHTML = data[id];        
+        document.getElementById("content").innerHTML = data[id];
+        console.log(id);
+        fetch('/season-data-api?season-slug='+data[id])
+        .then( response => response.json() )
+        .then( data => document.getElementById("content").innerHTML = data[0]['programKey']  )
+         
     }
+
+
+
+
+
+
+
+
 </script>
 
-<select id="whatever" onchange="changeText(this.value);">
-    <option value="0">Select</option>
-    <option value="1">One</option>
-    <option value="3">Two</option>
+<select id="testid" onchange="changeText(this.value);">
+    {% for i in range(0, len) %}   
+        <option value="{{i}}">{{ post_data['items']['season_title'][i] }}</option>
+    {% endfor %}
 </select>
 <div id="content"></div>
