@@ -117,40 +117,61 @@ def programs():
         'tab': 'afleveringen'
     }
 
-    program_data = requests.get(f"https://npo.nl/start/_next/data/x86HHiBzF_QycknSQpn-M/serie/{program_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries'][0]['state']['data']
+    program_data = requests.get(f"https://npo.nl/start/_next/data/x86HHiBzF_QycknSQpn-M/serie/{program_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries']
+
+
 
     post_data = {"items": {"image_url": "",
                         "title_image": "",
                         "program_title": "",
                         "program_summary": "",
-                        "program_genre": ""}}
+                        "program_genre": "",
+                        'season_title': [],
+                        'season_guid': []}}
 
-    program_title = program_data['title']
+    program_title = program_data[0]['state']['data']['title']
     post_data['items']['program_title'] = program_title
 
-    program_summary = program_data['synopsis']
+    program_summary = program_data[0]['state']['data']['synopsis']
     post_data['items']['program_summary'] = program_summary
 
-    program_genre = program_data['genres'][0]['name']
+    program_genre = program_data[0]['state']['data']['genres'][0]['name']
     post_data['items']['program_genre'] = program_genre
 
-    for image_text in program_data['images']:
+    for image_text in program_data[0]['state']['data']['images']:
         if image_text['role'] == "title":
             image_text_url = image_text['url']
             post_data['items']['title_image'] = image_text_url
 
-    for image in program_data['images']:
+    for image in program_data[0]['state']['data']['images']:
         if image['role'] == "collection_item":
             image_url = image['url']
             post_data['items']['image_url'] = image_url
             
     if not image_url:
-        for image in program_data['images']:
+        for image in program_data[0]['state']['data']['images']:
             if image['role'] == "default":
                 image_url = image['url']
                 post_data['items']['image_url'] = image_url
+
+
+    for program_seasons in program_data[3]['state']['data']:
+        print(program_seasons)
+        program_season_label = program_seasons['label']
+        print(program_season_label)
+        if program_season_label == None:
+            program_season_label =  f"Seizoen {program_seasons['seasonKey']}"
+
+            
+        post_data['items']['season_title'].append(program_season_label)
+
+        program_season_guid = program_seasons['guid']
+        print(program_season_guid)
+        post_data['items']['season_guid'].append(program_season_guid)
     
-    return render_template('program_info.html', post_data=post_data)
+    
+
+    return render_template('program_info.html', post_data=post_data, len=len(post_data['items']['season_title']))
 
 @app.route("/test")
 def test():
@@ -181,6 +202,10 @@ def test():
 
 
     return render_template('text_index.html', post_data=post_data, len=len(post_data['items']['season_title']))
+
+
+# Made a proxy right here below as it was too slow to make javascript fetch data for each season. Every season has an own api link.
+# the api below gets an request from the javascript for the selected season. This makes it faster and doesnt result in a timeout from the npo api. 
 
 @app.route("/season-data-api")
 def season_data_api():
