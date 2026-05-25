@@ -44,6 +44,18 @@
                     </a>
                 </div>
             </div>
+            <div class="trending-container-1">
+                <h2>Trending:</h2>
+                <div class="trending">
+                    <a href="/programs?slug={{ post_data['items']['trending_programs']['slug'][1] }}">
+                        <img class="trending-image" src="{{ post_data['items']['trending_programs']['image'][1] }}?dimensions=3400x3400" alt="Right-trending-cover">
+                        <div class="trending-overlay"></div>
+                        <div class="trending-overlay-image">
+                            <img class="trending-image-text" src="{{ post_data['items']['trending_programs']['text_image'][1] }}?dimensions=256x256" alt="right-trending-title-text">
+                        </div>
+                    </a>
+                </div>
+            </div>
             <div class="middle-main-content">
                 <form class="form" action="/search_results" method="post">
                     <label for="series-input" aria-label="form-search-npoprogram"></label>
@@ -81,18 +93,6 @@
                             </div>
                         </a>
                     </div>
-                </div>
-            </div>
-            <div class="trending-container">
-                <h2>Trending:</h2>
-                <div class="trending">
-                    <a href="/programs?slug={{ post_data['items']['trending_programs']['slug'][1] }}">
-                        <img class="trending-image" src="{{ post_data['items']['trending_programs']['image'][1] }}?dimensions=3400x3400" alt="Right-trending-cover">
-                        <div class="trending-overlay"></div>
-                        <div class="trending-overlay-image">
-                            <img class="trending-image-text" src="{{ post_data['items']['trending_programs']['text_image'][1] }}?dimensions=256x256" alt="right-trending-title-text">
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
