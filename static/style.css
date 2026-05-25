@@ -181,6 +181,7 @@ body {
 
 .form input{
     font-family: "Open Sans", sans-serif;
+
     width: 25rem;
     height: 3rem;
     background: none;
@@ -511,6 +512,10 @@ body {
 
     .trending-container-1 h2 {
         color: #0C203C;
+    }
+
+    .form input {
+        max-width: 20rem;
     }
 
 
