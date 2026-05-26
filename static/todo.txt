@@ -9,7 +9,7 @@ EVERY HTML:
 - DONE - make not-npo logo an url
 
 - fix all the urls for github pages
-
+d
 
 INDEX.HTML:
 
