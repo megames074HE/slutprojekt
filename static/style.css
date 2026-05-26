@@ -285,8 +285,9 @@ body {
 
 .result {
     position: relative;
-    width: 200px;
-    height: 300px;
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 2 / 3;
     border-radius: 20px;
     overflow: hidden;
 
@@ -493,7 +494,6 @@ body {
 @media (max-width: 950px) {
 
     /*index.html but for >950px*/
-
     .index-main-content {
         display: flex;
         flex-direction: row;
@@ -528,11 +528,10 @@ body {
 
 
     /* program_info.html for screens <950px in width */
-
     .program-info-main {
         display: flex;
 
-       
+
     }
 
 
@@ -540,7 +539,7 @@ body {
         display: flex;
         flex-direction: column;
     }
-    
+
     .program-info-left-side {
         display: none;
     }
@@ -553,11 +552,11 @@ body {
 
 
     .episode-select-list {
-       display: flex;
-       flex-direction: row;
+        display: flex;
+        flex-direction: row;
     }
 
-
+}
 
 /* media query for even smaller screens like an iphone 15 in vertical mode etc */
 
@@ -570,6 +569,19 @@ body {
         
         
     }
+
+    /* search_result.html for screens <495px in width */
+
+    .result {
+        max-width: 150px;
+    }
+
+    .result-image-text {
+        width: 70%;
+        max-width: 220px;
+        height: auto;
+    }
+
 
     /* program_info.html for screens <495px in width */
 
