@@ -484,7 +484,9 @@ body {
     background-color: #4e535b;
 }
 
-/* all of the css for a smaller screen. like every screen that is smaller than 950px */
+
+
+/* all of the css for a smaller screen. like every screen that is smaller than 950px in width*/
 
 @media (max-width: 950px) {
 
@@ -518,7 +520,63 @@ body {
         max-width: 20rem;
     }
 
+    .trending {
+        max-width: 200px;
+    }
+
+
+    /* program_info.html for screens <950px in width */
+
+    .program-info-main {
+        display: flex;
+
+       
+    }
+
+    .program-info-left-side {
+       order: 1;
+    }
+
+    .episode-select-form-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+}   
+
+
+
+/* media query for even smaller screens like an iphone 15 in vertical mode etc */
+
+@media (max-width: 495px) {
+
+    /* index.html for screens <495px */
+
+    .trending {
+        width: 120px;
+        
+        
+    }
+
+    /* program_info.html for screens <495px in width */
+
+
+    .program-info-left-side {
+        display: none;
+    }
+
+
+    .program-info-program-summary p {
+        font-size: 1rem;
+
+    }
+
+
+    .episode-select-list {
+       display: flex;
+       flex-direction: row;
+    }
+
+
 
 
 }
-
