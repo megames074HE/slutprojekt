@@ -94,13 +94,13 @@
                 <div class="episode-select-list">
                     <form class="episode-select-form" action="/" method="post">
                         <div class="episode-select-form-inputs">
-                            <select class="episode-select-form-select" name="selected-season" id="seasons-list" onchange="changeText(this.value);">
+                            <select aria-label="season-select" class="episode-select-form-select" name="selected-season" id="seasons-list" onchange="changeText(this.value);">
                                 <option value="select">Select an Season</option>
                             {% for i in range(0, len) %}   
                                 <option value="{{i}}">{{ post_data['items']['season_title'][i] }}</option>
                             {% endfor %}
                             </select>
-                            <select class="episode-select-form-select" name="selected-episode" id="episodes-list">
+                            <select aria-label="episode-select" class="episode-select-form-select" name="selected-episode" id="episodes-list">
                                 <option value="select">Select a episode:</option>
                             </select>
                         </div>
@@ -112,7 +112,7 @@
         </div>
     </main>
     <footer class="main-footer">
-        <h3>Created By Megames: <a href="https://megames.se">megames.se</a></h3>
+        <h2>Created By Megames: <a href="https://megames.se">megames.se</a></h2>
     </footer>
 </body>
 </html>

@@ -58,12 +58,12 @@
                 <div class="episode-select-list">
                     <form class="episode-select-form" action="/search_results" method="post">
                         <div class="episode-select-form-inputs">
-                            <select class="episode-select-form-select" name="selected-season" id="seasons-list" onchange="changeText(this.value);">
+                            <select aria-label="season-select" class="episode-select-form-select" name="selected-season" id="seasons-list">
                                     <option value="select">Select a Season:</option>
                                     <option value="1">Season 1</option>
                                     <option value="2">Season 2</option>
                             </select>
-                            <select class="episode-select-form-select" name="selected-episode" id="episodes-list">
+                            <select aria-label="episode-select" class="episode-select-form-select" name="selected-episode" id="episodes-list">
                                 <option value="select">Select a episode:</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -77,7 +77,7 @@
         </div>
     </main>
     <footer class="main-footer">
-        <h3>Created By Megames: <a href="https://megames.se">megames.se</a></h3>
+        <h2>Created By Megames: <a href="https://megames.se">megames.se</a></h2>
     </footer>
 </body>
 </html>
