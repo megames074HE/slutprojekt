@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 from flask_cors import CORS
 import requests
 import random
@@ -215,6 +215,12 @@ def season_data_api():
     cors_data = requests.get(f'https://npo.nl/start/api/domain/programs-by-season?ageRestriction=undefined&guid={season_guid}&type=timebound_series&includePremiumContent=true').json()
 
     return cors_data
+
+
+@app.route("/file-api", methods=["GET", "POST"])
+def file_api():
+
+    return send_file("video.mp4", as_attachment=True, download_name='WIE IS DE MOL NEEDS CHANGED.mp4')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
