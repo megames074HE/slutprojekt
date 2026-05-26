@@ -1,9 +1,15 @@
+EVERY HTML:
+
+- FIx redundant link aka make an about page and login. but im too lazy
+
+
 INDEX.HTML:
 
 TO KNOW:
 
     trending cover image needs to be 375x375, and cover text needs to be 256x256. but image doesnt matter changed to highest
     new programs title image needs to be 128x128 and chose 900x900 for new programs images
+
 
 
 - DONE - change header color if i not like it anymore
@@ -38,7 +44,7 @@ TO KNOW:
 
 SEARCH-RESULTS.html
 
-- favicon
+- DONE - favicon
 
 - go back button
 
@@ -49,3 +55,7 @@ SEARCH-RESULTS.html
 PROGRAM_INFO.html
 
 - change title to episode name
+
+
+
+AT THE END COMPARE THE NON AND FLASK FILES TO SEE IF BOTH HAVE SAME STRUCTURE

@@ -10,7 +10,6 @@ body {
 
 
 
-
 .site-header {
     display: flex;
     flex-wrap: wrap;
@@ -70,6 +69,7 @@ body {
 .index-main {
     display: flex;
     flex-direction: column;
+
 }
 
 .index-main h1 {
@@ -183,7 +183,6 @@ body {
 
 .form input{
     font-family: "Open Sans", sans-serif;
-
     width: 25rem;
     height: 3rem;
     background: none;
@@ -257,7 +256,7 @@ body {
     background-color: #0C2032;
 }
 
-.main-footer h3, a, a:visited{
+.main-footer h2, a, a:visited{
     font-family: "Open Sans", sans-serif;
     color: white;
     font-weight: 400;
@@ -457,24 +456,24 @@ body {
 }
 
 .episode-select-form-select {
-    background-color: #77808C;
+    background-color: #AFB3B9;
     border: none;
     border-radius: 5px;
     font-family: "Open Sans", sans-serif;
-    color: white;
+    color: black;
     font-weight: 600;
     height: 2rem;
     width: 14rem;
 }
 
 .episode-select-form-select:hover {
-    background-color: #676f7a;
+    background-color: #717986;
 }
 
 .episode-select-form-button {
     background-color: #77808C;
     border: none;
-    color: white;
+    color: black;
     border-radius: 5px;
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
@@ -563,6 +562,11 @@ body {
 @media (max-width: 495px) {
 
     /* index.html for screens <495px */
+
+    .index-main {
+        display: flex;
+        align-items: center;
+    }
 
     .trending {
         width: 120px;
