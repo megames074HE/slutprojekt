@@ -2,6 +2,14 @@ EVERY HTML:
 
 - FIx redundant link aka make an about page and login. but im too lazy
 
+- Make about page
+
+- make login page
+
+- DONE - make not-npo logo an url
+
+- fix all the urls for github pages
+
 
 INDEX.HTML:
 
@@ -48,13 +56,15 @@ SEARCH-RESULTS.html
 
 - go back button
 
-- alt for every image needs to be the slug of the displayed program
+- DONE - alt for every image needs to be the slug of the displayed program
 
 - add functionality that if there are no results shows a error text instead
 
 PROGRAM_INFO.html
 
-- change title to episode name
+- DONE - change title to episode name
+
+- FORGET THIS NO TRAILERS AVAILABLE ANYMORE FROM NPO - add trailer or promotion video for desktop versions
 
 
 
