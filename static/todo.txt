@@ -8,11 +8,11 @@ TO KNOW:
 
 - DONE - change header color if i not like it anymore
 
-- change npo logo because copyright
+- DONE - change npo logo because copyright
 
 - make login functional
 
-- add actual links to header links
+- PARTIALLY DONE - add actual links to header links
 
 - DONE -  change the images to be rendered by python and add links to trending images
 
@@ -20,10 +20,9 @@ TO KNOW:
 
 - DONE - fix wave errors if those are there.
 
-
 - DONE - make random trending on reload
 
--fix favicon
+- DONE - fix favicon
 
 - DONE - add hover effects to all buttons
 
@@ -31,11 +30,11 @@ TO KNOW:
 
 - add functionality that adds plus icon to plus media so user know if he needs to login.
 
-- add favicon
+- DONE (dont know why i put this 2x on the list) - add favicon
 
--add function so that there are no duplicates in the trending and new_programs
+- add function so that there are no duplicates in the trending and new_programs
 
-- add label to flask index
+- DONE - add label to flask index
 
 SEARCH-RESULTS.html
 
