@@ -6,7 +6,7 @@ TO KNOW:
     new programs title image needs to be 128x128 and chose 900x900 for new programs images
 
 
-- change header color if i not like it anymore
+- DONE - change header color if i not like it anymore
 
 - change npo logo because copyright
 
@@ -14,23 +14,20 @@ TO KNOW:
 
 - add actual links to header links
 
-- change the images to be rendered by python and add links to trending images
+- DONE -  change the images to be rendered by python and add links to trending images
 
-- add correct flask url to form action
+- DONE - add correct flask url to form action
 
-- fix wave errors if those are there.
+- DONE - fix wave errors if those are there.
 
-- add video if available on trending tabs
 
-- make random trending on reload
+- DONE - make random trending on reload
 
 -fix favicon
 
-- fix form color so mouse doesnt disappear.
+- DONE - add hover effects to all buttons
 
-- add hover effects to all buttons
-
-- take extra look add margins and responsive
+- DONE - take extra look add margins and responsive
 
 - add functionality that adds plus icon to plus media so user know if he needs to login.
 
@@ -38,7 +35,7 @@ TO KNOW:
 
 -add function so that there are no duplicates in the trending and new_programs
 
-
+- add label to flask index
 
 SEARCH-RESULTS.html
 

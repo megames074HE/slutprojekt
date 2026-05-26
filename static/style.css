@@ -9,6 +9,8 @@ body {
 }
 
 
+
+
 .site-header {
     display: flex;
     flex-wrap: wrap;
@@ -533,15 +535,27 @@ body {
        
     }
 
-    .program-info-left-side {
-       order: 1;
-    }
 
     .episode-select-form-inputs {
         display: flex;
         flex-direction: column;
     }
-}   
+    
+    .program-info-left-side {
+        display: none;
+    }
+
+
+    .program-info-program-summary p {
+        font-size: 1rem;
+
+    }
+
+
+    .episode-select-list {
+       display: flex;
+       flex-direction: row;
+    }
 
 
 
@@ -560,21 +574,6 @@ body {
     /* program_info.html for screens <495px in width */
 
 
-    .program-info-left-side {
-        display: none;
-    }
-
-
-    .program-info-program-summary p {
-        font-size: 1rem;
-
-    }
-
-
-    .episode-select-list {
-       display: flex;
-       flex-direction: row;
-    }
 
 
 
