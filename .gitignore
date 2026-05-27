@@ -9,4 +9,4 @@ venv/
 
 .DS_Store
 Thumbs.db
-/html_templates_no_flask/
+
