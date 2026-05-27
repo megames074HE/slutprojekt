@@ -518,6 +518,7 @@ body {
     font-family: "Open Sans", sans-serif;
     color: #e7e7e7bd;
     margin: 1rem;
+
     font-weight: 400;
 
 }
@@ -526,11 +527,14 @@ body {
 
 
 .about-tile-rectangle-h {
+
     background-color: #0C2032;
     width: 100%;
     max-width: 400px;
-    aspect-ratio: 2 / 1;
+    min-height: 200px;
     border-radius: 20px;
+
+
 
 }
 
@@ -540,7 +544,6 @@ body {
     background-color: #0C2032;
     width: 100%;
     max-width: 600px;
-    aspect-ratio: 1 / 1;
     border-radius: 20px;
 }
 
@@ -553,6 +556,59 @@ body {
 
 }
 
+/* error.html */
+
+.error-main {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+
+
+}
+
+.main-error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background: #0C2032;
+    width: 100%;
+    max-width: 800px;
+    min-height: 200px;
+
+
+}
+
+.main-error-container h1 {
+
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-weight: 400;
+}
+
+.main-error-container h2 {
+    font-family: "Open Sans", sans-serif;
+    color: #e7e7e7bd;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.main-error-container a {
+    margin: 1rem;
+    text-decoration: none;
+    background-color: #FF6D00;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 5px;
+    color: #0C2032;
+    font-weight: 400;
+}
+
+.main-error-container a:hover {
+    background-color: #ff8000;
+}
 
 
 /* all of the css for a smaller screen. like every screen that is smaller than 950px in width*/
