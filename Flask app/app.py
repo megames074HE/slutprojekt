@@ -211,7 +211,7 @@ def file_api():
         selected_season = request.form['selected-season']
         selected_episode = request.form['selected-episode']
 
-        return send_file("video.mp4", as_attachment=True, download_name=f'{program_slug+"-S-"+selected_season+"-E-"+selected_episode}.mp4')
+        return send_file("video.mp4", as_attachment=True, download_name=f'{program_slug + "-S-" + selected_season + "-E-" + selected_episode}.mp4')
 
 
 

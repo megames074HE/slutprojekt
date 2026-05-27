@@ -105,7 +105,7 @@ def npo_widevine(slug, cookie):
     pssh = PSSH(pssh_data)
 
     ## Loads wvd. Create an wvd with this command: "pywidevine create-device -k <device_private_key> -c <device_client_id_blob> -t "ANDROID" -l 3"
-    device = Device.load("cdm.wvd")
+    device = Device.load("../cdm.wvd")
 
     cdm = Cdm.from_device(device)
 

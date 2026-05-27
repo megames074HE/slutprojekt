@@ -12,14 +12,14 @@ season = 0
 # TODO: add some kind of simple search engine to make downloading easier
 show_url = input("Enter NPO Start Season URL Like: ['https://npo.nl/start/serie/de-slimste-mens/afleveringen'] : ")
 
-with open("cookie.json", "r") as data:
+with open("../cookie.json", "r") as data:
     cookie_data = json.load(data)
 
 if cookie_data['cookie']:
     if input("\nSaved cookie for NPO Plus found. To edit this cookie press 'E'. To use the saved cookie press ENTER: "):
         new_cookie = input("\nEnter new '__Secure-next-auth.session-token' cookie: ")
         cookie_data['cookie'] = new_cookie
-        with open("cookie.json", "w") as f:
+        with open("../cookie.json", "w") as f:
             json.dump(cookie_data, f)
             print("\nNew cookie saved!")
         cookie = cookie_data['cookie']
@@ -33,7 +33,7 @@ else:
     if cookie:
         if input("\nSave this cookie for future use? [Y/N]: ").lower() == "y":
             cookie_data['cookie'] = cookie
-            with open("cookie.json", "w") as f:
+            with open("../cookie.json", "w") as f:
                 json.dump(cookie_data, f)
                 print("\nCookie saved!")
 
