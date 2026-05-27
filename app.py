@@ -13,6 +13,8 @@ trending_programs_url = "https://npo.nl/start/api/domain/recommendation-collecti
 
 new_programs_url = "https://npo.nl/start/api/domain/recommendation-collection?collectionId=recent-free-v0&collectionIndex=4&collectionType=SERIES&includePremiumContent=true&layoutType=RECOMMENDATION&partyId=1%3Amjue2oeb%3A16f959774071426fb880d64700be8000"
 
+## String for the data apis. Needs to be changed every month. Going to be automatic
+api_url_data_string = "84pYDQb1urckQuRTnDy1_"
 
 @app.route('/')
 def index():
@@ -117,7 +119,7 @@ def programs():
         'tab': 'afleveringen'
     }
 
-    program_data = requests.get(f"https://npo.nl/start/_next/data/x86HHiBzF_QycknSQpn-M/serie/{program_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries']
+    program_data = requests.get(f"https://npo.nl/start/_next/data/{api_url_data_string}/serie/{program_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries']
 
 
 
@@ -173,35 +175,11 @@ def programs():
 
     return render_template('program_info.html', post_data=post_data, len=len(post_data['items']['season_title']))
 
-@app.route("/test")
-def test():
-    search_slug = "wie-is-de-mol"
-
-    payload = {
-        'seriesSlug': search_slug,
-        'tab': 'afleveringen'
-    }
 
 
-    program_data = requests.get(f"https://npo.nl/start/_next/data/x86HHiBzF_QycknSQpn-M/serie/{search_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries'][3]['state']['data']
-
-    post_data = {'items': {'season_title': [],
-                           'season_guid': []}}
-
-    for program_seasons in program_data:
-
-        program_season_label = program_seasons['label']
-        print(program_season_label)
-        post_data['items']['season_title'].append(program_season_label)
-
-        program_season_guid = program_seasons['guid']
-        print(program_season_guid)
-        post_data['items']['season_guid'].append(program_season_guid)
-
-
-
-
-    return render_template('text_index.html', post_data=post_data, len=len(post_data['items']['season_title']))
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 # Made a proxy right here below as it was too slow to make javascript fetch data for each season. Every season has an own api link.
@@ -219,8 +197,17 @@ def season_data_api():
 
 @app.route("/file-api", methods=["GET", "POST"])
 def file_api():
+    if request.method == 'POST':
 
-    return send_file("video.mp4", as_attachment=True, download_name='WIE IS DE MOL NEEDS CHANGED.mp4')
+        program_slug = request.args.get('slug')
+
+        selected_season = request.form['selected-season']
+        selected_episode = request.form['selected-episode']
+
+        return send_file("video.mp4", as_attachment=True, download_name=f'{program_slug+"-S-"+selected_season+"-E-"+selected_episode}.mp4')
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)

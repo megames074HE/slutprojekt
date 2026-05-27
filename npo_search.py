@@ -6,7 +6,8 @@ payload = {"searchQuery": "de mol",
             "subscriptionType": "anonymous",
             "includePremiumContent": "true"}
 
-search_results_api = requests.get("https://npo.nl/start/api/domain/search-collection-items", params=payload).json()['items'][:16]
+search_results_api = requests.get("https://npo.nl/start/api/domain/search-collection-items", params=payload).json()[
+    'items'][:24]
 
 
 post_data = {"items": {"image_url": [],
