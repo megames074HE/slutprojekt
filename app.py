@@ -105,8 +105,11 @@ def search_results():
 
             post_data['items']['series_slug'].append(search_results_api[i]['slug'])
 
-        print(post_data)
-        return render_template("search_results.html", post_data=post_data, len=len_list)
+        if len_list == 0:
+            return render_template("error.html")
+        else:
+            print(post_data)
+            return render_template("search_results.html", post_data=post_data, len=len_list)
 
 @app.route('/programs')
 def programs():
@@ -175,6 +178,10 @@ def programs():
 
     return render_template('program_info.html', post_data=post_data, len=len(post_data['items']['season_title']))
 
+
+@app.route('/login')
+def login():
+    return render_template('error.html')
 
 
 @app.route('/about')
