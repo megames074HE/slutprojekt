@@ -74,3 +74,5 @@ ABOUT.HTML
 AT THE END COMPARE THE NON AND FLASK FILES TO SEE IF BOTH HAVE SAME STRUCTURE
 
 make an requirements.txt for the app.py
+
+fix npo searches that result in an error
