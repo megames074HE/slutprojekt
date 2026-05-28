@@ -4,18 +4,16 @@ EVERY HTML:
 
 - DONE - Make about page
 
-- make login page
-
 - DONE - make not-npo logo an url
 
-- fix all the urls for github pages
+- DONE - fix all the urls for github pages
 
 
 INDEX.HTML:
 
 TO KNOW:
 
-    trending cover image needs to be 375x375, and cover text needs to be 256x256. but image doesnt matter changed to highest
+ - NOT NEEDED FIXED IN CSS -   trending cover image needs to be 375x375, and cover text needs to be 256x256. but image doesnt matter changed to highest
     new programs title image needs to be 128x128 and chose 900x900 for new programs images
 
 
@@ -24,7 +22,7 @@ TO KNOW:
 
 - DONE - change npo logo because copyright
 
-- NOT WORTH - make login functional
+- NO TIME - make login functional
 
 - DONE - add actual links to header links
 
@@ -44,8 +42,6 @@ TO KNOW:
 
 - DONE (dont know why i put this 2x on the list) - add favicon
 
-- add function so that there are no duplicates in the trending and new_programs
-
 - DONE - add label to flask index
 
 SEARCH-RESULTS.html
@@ -54,7 +50,7 @@ SEARCH-RESULTS.html
 
 - DONE - alt for every image needs to be the slug of the displayed program
 
-- add functionality that if there are no results show a error text instead
+- DONE - add functionality that if there are no results show a error text instead
 
 PROGRAM_INFO.html
 
@@ -62,7 +58,7 @@ PROGRAM_INFO.html
 
 - FORGET THIS NO TRAILERS AVAILABLE ANYMORE FROM NPO - add trailer or promotion video for desktop versions
 
-- fix the episodes not being correct
+- DONE - fix the episodes not being correct
 
 
 ABOUT.HTML
