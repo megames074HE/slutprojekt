@@ -162,8 +162,31 @@ def programs():
 
     for program_seasons in program_data[3]['state']['data']:
         print(program_seasons)
-        program_season_label = program_seasons['label']
-        print(program_season_label)
+        try:
+            program_season_label = program_seasons['label']
+            print(program_season_label)
+        except:
+            program_season_label = program_seasons['slug'].replace("-", " ")
+
+            ## fix as nos programs doesn't have seasons.
+
+            if "nos" in program_season_label:
+                program_season_label = 1
+                post_data['items']['season_title'].append(program_season_label)
+
+                ## another fix as nos programs does not use the same api for episode as series.
+
+                program_seasons_nos = requests.get(
+                    f"https://npo.nl/start/_next/data/84pYDQb1urckQuRTnDy1_/serie/{program_slug}/afleveringen.json",
+                    params=payload).json()['pageProps']['dehydratedState']['queries'][0]['state']['data']
+
+                # print(program_seasons_nos['guid'])
+                program_season_guid = "nos" + program_seasons_nos['guid']
+                print(program_season_guid)
+                post_data['items']['season_guid'].append(program_season_guid)
+                return render_template('program_info.html', post_data=post_data,
+                                       len=len(post_data['items']['season_title']))
+
         if program_season_label == None:
             program_season_label =  f"Seizoen {program_seasons['seasonKey']}"
 
@@ -197,7 +220,13 @@ def season_data_api():
     
     season_guid = request.args.get('season-slug')
     print('slug '+season_guid)
-    cors_data = requests.get(f'https://npo.nl/start/api/domain/programs-by-season?ageRestriction=undefined&guid={season_guid}&type=timebound_series&includePremiumContent=true').json()
+
+    if "nos" in season_guid:
+        print('nos program found!')
+        print(f'https://npo.nl/start/api/domain/programs-by-series?includePremiumContent=true&seriesGuid={season_guid.replace("nos", "")}&limit=20&sort=-firstBroadcastDate')
+        cors_data = requests.get(f'https://npo.nl/start/api/domain/programs-by-series?includePremiumContent=true&seriesGuid={season_guid.replace("nos", "")}&limit=20&sort=-firstBroadcastDate').json()
+    else:
+        cors_data = requests.get(f'https://npo.nl/start/api/domain/programs-by-season?ageRestriction=undefined&guid={season_guid}&type=timebound_series&includePremiumContent=true').json()
 
     return cors_data
 
