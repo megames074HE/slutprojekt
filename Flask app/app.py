@@ -140,7 +140,12 @@ def programs():
     program_summary = program_data[0]['state']['data']['synopsis']
     post_data['items']['program_summary'] = program_summary
 
-    program_genre = program_data[0]['state']['data']['genres'][0]['name']
+    ## Fix for genres not showing up or causing errors. This happens because the program doesn't have a genre.
+    try:
+        program_genre = program_data[0]['state']['data']['genres'][0]['name']
+    except:
+        program_genre = "Informatief"
+
     post_data['items']['program_genre'] = program_genre
 
     for image_text in program_data[0]['state']['data']['images']:

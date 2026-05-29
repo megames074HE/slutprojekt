@@ -1,6 +1,6 @@
 import requests
 
-search_slug = "wie-is-de-mol"
+search_slug = "kunst-in-het-wild"
 
 payload = {
     'seriesSlug': search_slug,
@@ -8,7 +8,7 @@ payload = {
 }
 
 
-program_data = requests.get(f"https://npo.nl/start/_next/data/x86HHiBzF_QycknSQpn-M/serie/{search_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries'][0]['state']['data']
+program_data = requests.get(f"https://npo.nl/start/_next/data/84pYDQb1urckQuRTnDy1_/serie/{search_slug}/afleveringen.json", params=payload).json()['pageProps']['dehydratedState']['queries']
 
 
 post_data = {"items": {"image_url": "",
@@ -17,13 +17,18 @@ post_data = {"items": {"image_url": "",
                        "program_summary": "",
                        "program_genre": ""}}
 
-program_title = program_data['title']
+program_title = program_data[0]['state']['data']['title']
 post_data['items']['program_title'] = program_title
 
-program_summary = program_data['synopsis']
+program_summary = program_data[0]['state']['data']['synopsis']
 post_data['items']['program_summary'] = program_summary
 
-program_genre = program_data['genres'][0]['name']
+try:
+    program_genre = program_data[0]['state']['data']['genres'][0]['name']
+except:
+    program_genre = program_data[1]['state']['data']
+    print(program_genre)
+
 post_data['items']['program_genre'] = program_genre
 
 for image_text in program_data['images']:

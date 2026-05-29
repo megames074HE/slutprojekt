@@ -63,12 +63,14 @@ PROGRAM_INFO.html
 
 ABOUT.HTML
 
-- fix the github url for the drm downloader
+- DONE - fix the github url for the drm downloader
 
 
 
-AT THE END COMPARE THE NON AND FLASK FILES TO SEE IF BOTH HAVE SAME STRUCTURE
+DONE - AT THE END COMPARE THE NON AND FLASK FILES TO SEE IF BOTH HAVE SAME STRUCTURE
 
-make an requirements.txt for the app.py
+- DONE -make an requirements.txt for the app.py
 
-fix npo searches that result in an error
+- DONE - fix nos searches that result in an error
+
+- DONE - fix error on some programs where the genre text causes an issue.
