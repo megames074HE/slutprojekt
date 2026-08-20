@@ -14,7 +14,7 @@ trending_programs_url = "https://npo.nl/start/api/domain/recommendation-collecti
 new_programs_url = "https://npo.nl/start/api/domain/recommendation-collection?collectionId=recent-free-v0&collectionIndex=4&collectionType=SERIES&includePremiumContent=true&layoutType=RECOMMENDATION&partyId=1%3Amjue2oeb%3A16f959774071426fb880d64700be8000"
 
 ## String for the data apis. Needs to be changed every month. Going to be automatic
-api_url_data_string = "84pYDQb1urckQuRTnDy1_"
+api_url_data_string = "IvIUng-0aGksq4mJ1Nu9D"
 
 @app.route('/')
 def index():
@@ -165,7 +165,14 @@ def programs():
                 post_data['items']['image_url'] = image_url
 
 
-    for program_seasons in program_data[3]['state']['data']:
+
+        ## yes another fix because nos keeps being stupid
+    try:
+        program_data_seasons = program_data[3]['state']['data']
+    except:
+        program_data_seasons = program_data[2]['state']['data']
+
+    for program_seasons in program_data_seasons:
         print(program_seasons)
         try:
             program_season_label = program_seasons['label']
@@ -182,7 +189,7 @@ def programs():
                 ## another fix as nos programs does not use the same api for episode as series.
 
                 program_seasons_nos = requests.get(
-                    f"https://npo.nl/start/_next/data/84pYDQb1urckQuRTnDy1_/serie/{program_slug}/afleveringen.json",
+                    f"https://npo.nl/start/_next/data/{api_url_data_string}/serie/{program_slug}/afleveringen.json",
                     params=payload).json()['pageProps']['dehydratedState']['queries'][0]['state']['data']
 
                 # print(program_seasons_nos['guid'])
